@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>Sharawani ke liye ek khaas sawaal ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ff4f81);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.box {
+    width: 90%;
+    max-width: 540px;
+    padding: 28px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 35px rgba(255,255,255,0.35);
+    animation: fadeIn 1.5s ease-in-out;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+button {
+    font-size: 22px;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 12px;
+    transition: 0.25s;
+}
+
+#yesBtn {
+    background: #00ffb3;
+}
+
+#noBtn {
+    background: #ff3b5c;
+    position: relative;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 22px;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box" id="mainBox">
+    <h1>Hey Sharawani ❤️</h1>
+    <p>
+        Yeh kahani hai ek ladke ki…  
+        Jiska naam hai <b>Rujul</b>.  
+        Usne kabhi nahi socha tha  
+        ki koi ek insaan uski zindagi ko itna khoobsurat bana dega.  
+        <br><br>
+        Phir tum aayi…  
+        Tumhari ek muskaan ne  
+        uski har thakaan mita di.  
+        Tumhari baatein uska sukoon ban gayi,  
+        aur tumhara naam uski aadat. 💕
+    </p>
+
+    <h1>Sharawani, kya tum meri banogi? ❤️</h1>
+
+    <button id="yesBtn">Haan</button>
+    <button id="noBtn">Nahi</button>
+</div>
+
+<script>
+let noBtn = document.getElementById("noBtn");
+let yesBtn = document.getElementById("yesBtn");
+let music = document.getElementById("music");
+
+// No button bhaag jaata hai 😄
+noBtn.addEventListener("mouseover", () => {
+    let x = Math.random() * window.innerWidth * 0.7;
+    let y = Math.random() * window.innerHeight * 0.7;
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+// Hearts create
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (18 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+// Yes click
+yesBtn.addEventListener("click", () => {
+    music.play();
+
+    setInterval(createHeart, 300);
+
+    document.body.innerHTML = `
+        <div style="padding:25px; text-align:center; color:white;">
+            <h1 style="font-size:46px;">Tumne Haan kaha, Sharawani ❤️</h1>
+            <p style="font-size:23px; line-height:1.8; margin-top:20px;">
+                Aaj tumne sirf ek sawaal ka jawab nahi diya…  
+                Tumne Rujul ki poori duniya jeet li. ✨  
+                <br><br>
+                Woh perfect ladki nahi dhoondh raha tha,  
+                Woh bas <b>tumhe</b> dhoondh raha tha.  
+                Tumhari simplicity, tumhari care,  
+                aur tumhara saath—  
+                uske liye sab kuch hai. ❤️  
+                <br><br>
+                Yeh sirf aaj ka “haan” nahi hai…  
+                Yeh ek khoobsurat kahani ki shuruaat hai.  
+                <br><br>
+                <b>Rujul hamesha tumhe hi choose karega.</b> 💖
+            </p>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>
